@@ -1,0 +1,60 @@
+{
+  "name": "mangapp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "An AngularJS project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcamilo721/mangApp.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.3.1",
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-html2js": "~0.2.9",
+    "grunt-include-source": "0.7.x",
+    "grunt-wiredep": "2.x",
+    "lite-server": "^2.2.2"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "postdeploy": "bower install",
+    "start": "lite-server"
+  },
+  "engines": {
+    "node": "4.4.4",
+    "npm": "2.15.x"
+  },
+  "bugs": {
+    "url": "https://github.com/jcamilo721/mangApp/issues"
+  },
+  "homepage": "https://github.com/jcamilo721/mangApp#readme",
+  "main": "Gruntfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "bower": "^1.7.9",
+    "foobar": "1.1.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-html2js": "^0.2.9",
+    "grunt-include-source": "^0.7.1",
+    "grunt-wiredep": "^2.0.0"
+  },
+  "keywords": [
+    "AngularJS",
+    "jcapp",
+    "mangapp",
+    "app",
+    "git",
+    "heroku",
+    "webapp"
+  ],
+  "author": "jcamilo721"
+}

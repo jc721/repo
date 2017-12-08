@@ -1,0 +1,74 @@
+<div class="container-fluid outerdiv" ng-controller="movieCtrl">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+          <span class="span-style">Search: <input type="text" ng-model="search" ng-model-options="{ debounce: 800 }" onclick="select()" class="form-control" placeholder="Movie | Serie" autofocus /></span>
+      </div>
+    </div>
+  </nav>
+  <div class= "ppal">
+    <div id="main-info" class="col-md-8">
+      <div ng-if="!details">
+        Loading results...
+      </div>
+
+      <div ng-if="details.Response==='True'">
+        <span class="title span-outer">
+          Title: <a href="http://imdb.com/title/{{ details.imdbID }}" target="_blank">{{ details.Title }}</a>
+        </span>, {{ details.Year }}
+        <hr>
+        <div id="left" align="center">
+          <div>
+            <img ng-src="{{ details.Poster=='N/A' ? 'http://placehold.it/150x220&text=N/A' : details.Poster }}" class="thumbnail animated flip movie-poster">
+          </div>
+        </div>
+        <div id="right">
+          <p><strong>Released on:</strong> {{ details.Released }} ({{ details.Runtime }})</p>
+          <p>{{ details.Plot }}</p>
+          <p class="outer-p">
+            <div class="inner-p"><span class="label label-primary">Directors :</span> {{ details.Director }}</div>
+            <div class="inner-p"><span class="label label-primary">Actors :</span> {{ details.Actors }}</div>
+            <div class="inner-p"><span class="label label-primary">Genre :</span> {{ details.Genre }}</div>
+          </p>
+          <p class="outer-p-2">Ratings:
+            <br>
+            <strong>IMDb Rating</strong>: <span class="label label-success">{{ details.imdbRating }}</span>
+            <br>
+            <strong>Rotten Tomatoes</strong>: <span class="label label-success">{{ details.tomatoRating }}</span>
+          </p>
+
+          <p class="outer-p-3">
+            <li><a ng-href="https://www.youtube.com/results?search_query={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Watch Trailers!</a></li>
+            <span class="divider"></span>
+            <li><a ng-href="http://subscene.com/subtitles/title?q={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Get Subtitles!</a></li>
+            <span class="divider"></span>
+            <li><a ng-href="http://www.theost.com/search/custom/?key={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Hear Soundtracks!</a></li>
+            <span class="divider"></span>
+            <li><a ng-href="http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ details.Title }}" target="_blank" class="btn btn-default btn-xs btn-info">Buy this movie!</a></li>
+            
+          </p>
+        </div>
+
+        
+      </div>
+
+      <div ng-if="details.Response==='False'">
+        No results found.
+      </div>
+    </div>
+  </div>
+  <div class= "det">
+    <div id="related-results" class="col-md-4 animated bounce related-results">
+        <div ng-if="related.Response!=='False'">
+          Related Results:
+          <hr>
+          <ul class="rel-results">
+            <li class="mdl-button mdl-js-ripple-effect rel-results-li" ng-repeat="movie in related.Search">
+              <img ng-src="{{  movie.Poster }}" class="thumbnail animated flip movie-poster" height="30">
+              <a href="#/movies" id="{{ $index + 1 }}" ng-click="update(movie)">{{ movie.Title }}</a>, {{ movie.Year }}
+            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</div>

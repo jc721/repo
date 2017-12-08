@@ -1,0 +1,29 @@
+<div ng-controller="galleryCtrl">
+<p>
+        Search:
+        <input ng-model="$ctrl.query" />
+        Sort by:
+        <select ng-model="$ctrl.orderProp">
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+          <option value="pubdate">Date</option>
+          <option value="upvotes">Votes</option>
+          <option value="views">Views</option>
+        </select>
+      </p>
+      
+  <div class="main">
+     <div class="container">
+        <div class="row">
+           <div class="item col" ng-repeat="photo in photos | filter:$ctrl.query | orderBy:$ctrl.orderProp">
+              <a href="#/photos/{{$index}}">
+              <img class="img-responsive" ng-src="{{ photo.url }}">
+              <p class="author">"{{ photo.title }}" by {{ photo.author }}        </p>
+              </a>
+           </div>
+         </div>
+      </div>
+  </div>
+</div>
+
+

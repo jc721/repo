@@ -1,0 +1,87 @@
+html, body {
+  background: #fff;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  /*text-transform: lowercase;*/
+}
+
+.rel-results {
+  padding: 5px;
+}
+
+.rel-results-lis li {
+  white-space: nowrap;
+  padding: 50px;
+}
+
+.ppal {
+  width: 68%;
+  float: left;
+  padding: 5px;
+  display: block;
+  overflow:auto;
+}
+
+#left {
+  float:left;
+  width: 40%;  
+  padding: 1em;
+}
+#right {
+  float:left;
+  width: 50%;  
+  padding: 0.5em;
+}
+
+.det {
+  width: 30%;
+  float: right;
+  padding: 5px;
+}
+
+@media (min-width: 760px) and (max-width: 1050px) { 
+
+    .ppal {
+      width: 100%;
+      float: left;
+    }
+    .det {
+      width: 100%;
+      float: left;
+    }
+
+    #left {
+    float:left;
+    width: 40%;  
+    padding: 1em;
+    }
+    #right {
+      float:left;
+      width: 50%;  
+      padding: 0.5em;
+    }
+}
+
+@media (min-width: 50px) and (max-width: 759px) { 
+
+    .ppal {
+      width: 95%;
+      float: left;
+    }
+    .det {
+      width: 95%;
+      float: left;
+    }
+
+    #left {
+    float:left;
+    content: justify;
+    width: 95%;  
+    }
+    #right {
+      float:left;
+      width: 95%;  
+    }
+}
