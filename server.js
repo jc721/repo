@@ -1,17 +1,19 @@
-var http = require('http'),
-    fs = require('fs');
 
 
-fs.readFile('./src/index.html', function (err, html) {
-    if (err) {
-        throw err; 
-    }       
-    http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(process.env.PORT || 8000);
-});
+var express = require('express');
+var app = express();
+
+app.use('/js', express.static('/src/express' + '/js'));
+app.use('/bower_components', express.static('./node_modules/bower/bin/bower' + '/../bower_components'));
+app.use('/css', express.static(__dirname + './src/css'));
+app.use('/modules', express.static(__dirname + './src/modules'));
+
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendFile('index.html', { root: './src/index.html' });
+
+
+
 
 /*var express = require('express');
 var app = express();
