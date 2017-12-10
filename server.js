@@ -13,7 +13,7 @@ fs.readFile('./src/index.html', function (err, html) {
     }).listen(process.env.PORT || 8000);
 });
 
-var express = require('express');
+/*var express = require('express');
 var app = express();
 
 app.use('/js', express.static(__dirname + '/js'));
@@ -24,4 +24,4 @@ app.use('/partials', express.static(__dirname + '/partials'));
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname });
-});
+});*/
