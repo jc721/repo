@@ -19,14 +19,14 @@
     "lite-server": "^2.2.2"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "./node_modules/bower/bin/bower install",
     "prestart": "npm install",
     "postdeploy": "bower install",
     "start": "lite-server"
   },
   "engines": {
-    "node": "4.4.4",
-    "npm": "2.15.x"
+    "node": "8.9.1",
+    "npm": "5.5.1"
   },
   "bugs": {
     "url": "https://github.com/jcamilo721/mangApp/issues"
